@@ -1,5 +1,5 @@
 FROM openjdk:8u111-jdk
-MAINTAINER Shane Husson shane.a.husson@gmail.com
+MAINTAINER Francesco Lescai lescai@biomed.au.dk
 
 RUN apt-get update --fix-missing && apt-get install -y \
     ca-certificates \
