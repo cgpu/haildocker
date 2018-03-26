@@ -25,9 +25,11 @@ RUN mkdir /usr/spark && \
     | tar x -C /usr/spark && \
     chown -R root:root $SPARK_HOME
 
-RUN git clone https://github.com/broadinstitute/hail.git ${HAIL_HOME} && \
+RUN cd /usr && \
+	curl --retry 3 -O \
+	"https://storage.googleapis.com/hail-common/distributions/0.1/Hail-0.1-20613ed50c74-Spark-2.1.0.zip" && \
+	unzip Hail-0.1-20613ed50c74-Spark-2.1.0.zip && \
     cd ${HAIL_HOME} && \
-    ./gradlew shadowJar && \
     pip install py4j && \
     echo 'alias pyhail="PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.3-src.zip:$HAIL_HOME/python SPARK_CLASSPATH=$HAIL_HOME/build/libs/hail-all-spark.jar python"' >> ~/.bashrc
 
