@@ -20,7 +20,7 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
 
 RUN mkdir /usr/spark && \
     curl -sL --retry 3 \
-    "http://apache.mirror.serversaustralia.com.au/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.7.tgz" \
+    "https://archive.apache.org/dist/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.7.tgz" \
     | gzip -d \
     | tar x -C /usr/spark && \
     chown -R root:root $SPARK_HOME
