@@ -6,7 +6,7 @@ RUN apt-get update --fix-missing && apt-get install -y \
     cmake \
     g++ \
     git \
-    libc6-compat \
+    libc6-compact \
     wget
 
 ENV SPARK_HOME=/usr/spark/spark-2.1.0-bin-hadoop2.7 \
