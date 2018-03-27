@@ -25,6 +25,9 @@ RUN mkdir /usr/spark && \
     | tar x -C /usr/spark && \
     chown -R root:root $SPARK_HOME
 
+RUN pip install decorator && \
+	pip install --upgrade pip
+
 RUN cd /usr && \
 	curl --retry 3 -O \
 	"https://storage.googleapis.com/hail-common/distributions/0.1/Hail-0.1-20613ed50c74-Spark-2.1.0.zip" && \
