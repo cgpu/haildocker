@@ -22,7 +22,8 @@ RUN apt-get update --fix-missing && apt-get install -y \
     
 ENV SPARK_HOME=/usr/spark/spark-2.1.0-bin-hadoop2.7 \
     HAIL_HOME=/usr/hail \
-    PATH=/opt/conda/bin:$PATH:/usr/spark/spark-2.1.0-bin-hadoop2.7/bin:/usr/hail/build/install/hail/bin/
+    PATH=/opt/conda/bin:$PATH:/usr/spark/spark-2.1.0-bin-hadoop2.7/bin:/usr/hail/build/install/hail/bin/ \
+    GRADLE_USER_HOME=/usr/home
 
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda2-4.1.11-Linux-x86_64.sh -O ~/miniconda.sh && \
